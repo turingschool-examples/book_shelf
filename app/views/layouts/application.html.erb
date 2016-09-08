@@ -8,6 +8,24 @@
 </head>
 <body>
 
+  <% flash.each do |type, message| %>
+    <%= message %>
+  <% end %>
+
+  <div>
+    <% if current_user %>
+      <%= link_to "Logout", logout_path, method: :delete %>
+      <p>
+        <% if most_recent_book %>
+          <strong>Newest book:</strong> <%= most_recent_book.title %>
+      <% end %>
+    </p> 
+    <% else %>
+      <%= link_to "Login", login_path %>
+      <%= link_to "Register", new_user_path %>
+    <% end %>
+  </div> 
+
 <%= yield %>
 
 </body>

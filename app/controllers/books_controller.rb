@@ -1,7 +1,11 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all
+    if current_user
+      @books = current_user.books
+    else
+      @books = []
+    end
   end
 
   def show
@@ -13,9 +17,11 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new( book_params )
+    @book = current_user.books.new( book_params )
 
     if @book.save
+      session[:most_recent_book_id] = @book.id
+      flash[:notice] = "Book was created. Wooo!"
       redirect_to books_path
     else
       render :new
@@ -39,6 +45,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find( params[:id] )
     book.destroy
+    session[:most_recent_book_id] = Book.last.id
     redirect_to books_path
   end
 
