@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :books
 
+  resources :categories, only: [:index]
+
   # get "/random_book", to: "books#random"
 
 end

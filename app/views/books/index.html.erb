@@ -6,9 +6,6 @@
 <ul>
   <% @books.each do |book| %>
     <li><%= book.title %> - <%= book.price %> - <%= book.quantity %><br>
-        <%= link_to "Edit this Book", edit_book_path(book) %>
-        -
-        <%= link_to "Delete this Book", book_path(book) %>
     </li><br>
 
   <% end %>

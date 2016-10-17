@@ -1,1 +1,12 @@
-<%= render partial: "form" %>
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+
+  <%= f.label :quantity %>
+  <%= f.text_field :quantity %>
+
+  <%= f.submit  %>
+<% end %>
