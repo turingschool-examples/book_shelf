@@ -1,11 +1,11 @@
 
 
-<%= link_to "Add New Book To The Shelf", new_book_path %>
+<%= link_to "Add New Book To The Shelf", "/books/new" %>
 
 
 <ul>
   <% @books.each do |book| %>
-    <li><%= book.title %> - <%= book.price %> - <%= book.quantity %><br>
+    <li><%= link_to book.title, "/books/#{book.id}" %> - <%= book.price %> - <%= book.quantity %><br>
     </li><br>
 
   <% end %>
