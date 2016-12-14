@@ -1,1 +1,4 @@
-<%= @book.title %> - <%= @book.price %> - <%= @book.quantity %>
+<%= @book.title %> - <%= @book.price %> - <%= @book.quantity %><br>
+
+<%= link_to "Edit", edit_book_path(@book) %><br>
+<%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Are you sure you want to delete this book?"} %>
