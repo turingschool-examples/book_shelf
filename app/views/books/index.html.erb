@@ -3,9 +3,9 @@
 <%= link_to "Add New Book To The Shelf", new_book_path %>
 
 
-<ul>
+<ul class="books_list">
   <% @books.each do |book| %>
-    <li><%= book.title %> - <%= book.price %> - <%= book.quantity %><br>
+    <li class="book"><%= book.title %> - <%= book.price %> - <%= book.quantity %><br>
         <%= link_to "Edit this Book", edit_book_path(book) %>
         -
         <%= link_to "Delete this Book", book_path(book) %>
